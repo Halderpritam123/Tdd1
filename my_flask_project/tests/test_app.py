@@ -62,8 +62,12 @@ def test_delete_weather_existing_city(client):
     assert response.status_code == 200
     assert 'Weather data deleted successfully.' in str(response.data)
 
+
+
 def test_delete_weather_non_existing_city(client):
     response = client.delete('/weather/Chicago')
 
     assert response.status_code == 404
     assert 'City "Chicago" not found.' in str(response.data)
+
+
